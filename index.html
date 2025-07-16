@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Vocabulary Journal</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+      integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #ffebf5;
+        font-family: "Georgia", serif;
+      }
+
+      .page-title {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 25px;
+        font-size: 2.5rem;
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px #ddd;
+        height: 100px;
+        border-radius: 6px 6px 6px 6px;
+      }
+
+      .card {
+        border: 1px solid #e0d5db;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fffdf8;
+        transition: transform 0.3s ease;
+      }
+      .card-img-top {
+        width: 280px;
+        height: 190px;
+        object-fit: cover; /* 讓圖片填滿但不變形 */
+        object-position: center; /* 圖片置中裁切 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+        border-radius: 12px 12px 12px 12px;
+        display: block;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .card:hover {
+        transform: scale(1.02);
+      }
+
+      .card-title {
+        color: #8b5e3c;
+        font-weight: bold;
+        font-size: xx-large;
+      }
+
+      .card-text {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .word-id {
+        font-size: 0.85rem;
+        color: #fffdf8; /* #999 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="page-title shadow-lg" style="background-color: #850f0f; text-align: center">J's Vocabulary Journal</h1>
+      <div class="row my-row mt-4"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+      integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- jQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        const data = [
+          {
+            id: 1,
+            word: "analyze",
+            ipa: "/ˈæn.əl.aɪz/",
+            meaning_zh: "分析",
+            example_en: "The scientist will analyze the results of the experiment.",
+            example_zh: "那位科學家將分析實驗的結果。",
+            img: "./images/01.jpg",
+          },
+          {
+            id: 2,
+            word: "approach",
+            ipa: "/əˈproʊtʃ/",
+            meaning_zh: "方法；接近",
+            example_en: "We need a new approach to solve this problem.",
+            example_zh: "我們需要一種新的方法來解決這個問題。",
+            img: "./images/02.jpg",
+          },
+          {
+            id: 3,
+            word: "area",
+            ipa: "/ˈer.i.ə/",
+            meaning_zh: "區域；範圍；領域",
+            example_en: "This area is known for its rich biodiversity.",
+            example_zh: "這個地區以其豐富的生物多樣性而聞名。",
+            img: "./images/03.jpg",
+          },
+          {
+            id: 4,
+            word: "assess",
+            ipa: "/əˈses/",
+            meaning_zh: "評估；估價",
+            example_en: "The teacher will assess your writing skills.",
+            example_zh: "老師將會評估你的寫作能力。",
+            img: "./images/04.jpg",
+          },
+          {
+            id: 5,
+            word: "assume",
+            ipa: "/əˈsuːm/",
+            meaning_zh: "假設；承擔（責任）",
+            example_en: "Don’t just assume he’s guilty without evidence.",
+            example_zh: "不要在沒有證據的情況下就假設他有罪。",
+            img: "./images/05.jpg",
+          },
+          {
+            id: 6,
+            word: "authority",
+            ipa: "/əˈθɔːr.ɪ.ti/",
+            meaning_zh: "權威；當局",
+            example_en: "The authority will issue a statement tomorrow.",
+            example_zh: "當局將於明天發表聲明。",
+            img: "./images/06.jpg",
+          },
+          {
+            id: 7,
+            word: "available",
+            ipa: "/əˈveɪ.lə.bəl/",
+            meaning_zh: "可用的；有空的",
+            example_en: "The product is available in various sizes.",
+            example_zh: "該產品有多種尺寸可供選擇。",
+            img: "./images/07.jpg",
+          },
+          {
+            id: 8,
+            word: "benefit",
+            ipa: "/ˈben.ɪ.fɪt/",
+            meaning_zh: "好處；利益",
+            example_en: "Regular exercise has many health benefits.",
+            example_zh: "定期運動有很多健康好處。",
+            img: "./images/08.jpg",
+          },
+          {
+            id: 9,
+            word: "concept",
+            ipa: "/ˈkɒn.sept/",
+            meaning_zh: "概念；觀念",
+            example_en: "The concept of freedom varies across cultures.",
+            example_zh: "自由的概念在不同文化中有所不同。",
+            img: "./images/09.jpg",
+          },
+          {
+            id: 10,
+            word: "consistent",
+            ipa: "/kənˈsɪs.tənt/",
+            meaning_zh: "一致的；連貫的；始終如一的",
+            example_en: "Her work is always of consistent quality.",
+            example_zh: "她的工作品質始終如一。",
+            img: "./images/10.jpg",
+          },
+          {
+            id: 11,
+            word: "create",
+            ipa: "/kriːˈeɪt/",
+            meaning_zh: "創造；創建",
+            example_en: "Artists create beauty through their work.",
+            example_zh: "藝術家通過他們的作品創造美。",
+            img: "./images/11.jpg",
+          },
+          {
+            id: 12,
+            word: "data",
+            ipa: "/ˈdeɪ.tə/",
+            meaning_zh: "數據；資料",
+            example_en: "The data shows a significant increase in sales.",
+            example_zh: "數據顯示銷售額有顯著增長。",
+            img: "./images/12.jpg",
+          },
+        ];
+
+        const myRow = $(".my-row");
+
+        data.forEach((value) => {
+          const tmpCard = `
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+              <div class="card h-100">
+                <img src="${value.img}" class="card-img-top" alt="image" />
+                <div class="card-body">
+                  <h5 class="card-title">${value.word}</h5>
+                  <p class="word-id">ID: ${value.id}</p>
+                  <p class="card-text"><strong>IPA:</strong> ${value.ipa}</p>
+                  <p class="card-text"><strong>中文：</strong>${value.meaning_zh}</p>
+                  <p class="card-text"><strong>例句(EN):</strong> ${value.example_en}</p>
+                  <p class="card-text"><strong>例句(中):</strong> ${value.example_zh}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          myRow.append(tmpCard);
+        });
+      });
+    </script>
+  </body>
+</html>
