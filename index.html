@@ -22,12 +22,14 @@
       .page-title {
         text-align: center;
         margin-top: 30px;
+        margin-bottom: 30px;
         padding-top: 25px;
         font-size: 2.5rem;
         color: #ffffff;
         font-weight: bold;
-        text-shadow: 1px 1px #ddd;
-        height: 100px;
+        text-shadow: 2px 2px #500808, 4px 4px #260404;
+        box-shadow: 2px 2px #500808, 4px 4px #260404;
+        min-height: 100px; /* 讓最小高度是 100px，但可隨文字自動撐高 */
         border-radius: 6px 6px 6px 6px;
       }
 
@@ -52,6 +54,7 @@
       }
       .card:hover {
         transform: scale(1.02);
+        background-color: white;
       }
 
       .card-title {
@@ -74,7 +77,7 @@
 
   <body>
     <div class="container">
-      <h1 class="page-title shadow-lg" style="background-color: #850f0f; text-align: center">J's Vocabulary Journal</h1>
+      <h1 class="page-title" style="background-color: #850f0f; text-align: center">J's Vocabulary Journal</h1>
       <div class="row my-row mt-4"></div>
     </div>
 
