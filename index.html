@@ -218,18 +218,37 @@
               <div class="card h-100">
                 <img src="${value.img}" class="card-img-top" alt="image" />
                 <div class="card-body">
-                  <h5 class="card-title">${value.word}</h5>
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title">${value.word}</h5>
+                    <button class="btn btn-sm btn-outline-primary speak-btn" data-word="${value.word}">
+                      🔊 發音
+                    </button>
+                  </div>
                   <p class="word-id">${value.id}</p>
                   <p class="card-text"><strong>IPA:</strong> ${value.ipa}</p>
                   <p class="card-text"><strong>中文：</strong>${value.meaning_zh}</p>
-                  <p class="card-text"><strong>例句(EN):</strong> ${value.example_en}</p>
+                  <p class="card-text"><strong>例句(EN):</strong> ${value.example_en}  
+                    <button class="btn btn-sm btn-outline-primary speak-btn" data-word="${value.example_en}">
+                      🔊 發音
+                    </button></p>
                   <p class="card-text"><strong>例句(中):</strong> ${value.example_zh}</p>
+
                 </div>
               </div>
             </div>
           `;
           myRow.append(tmpCard);
         });
+      });
+      // $(".speak-btn").on("click", function () {
+      $(document).on("click", ".speak-btn", function () {
+        const word = $(this).data("word");
+        console.log("$(this)", $(this));
+        console.log("發音單字:", word);
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = "en-US"; // 可改為 "en-GB" 等
+        utterance.rate = 0.9; // 發音速度（1為正常）
+        speechSynthesis.speak(utterance);
       });
     </script>
   </body>
